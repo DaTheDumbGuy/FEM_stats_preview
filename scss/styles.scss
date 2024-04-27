@@ -1,0 +1,104 @@
+@use "./base/index" as b;
+
+*, *::before, *::after{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+body{
+    background:b.$bg_main;
+    color:b.$fc_primary;
+    height:100vh;
+}
+main{
+    display:grid;
+    place-items:center;
+    padding:50px 0;
+}
+.card{
+    width:90%;
+    margin:auto;
+    background:b.$bg_card;
+    text-align: center;
+    border-radius:10px;
+    overflow: hidden;
+
+    &_img_container {
+        width: 100%;
+        height: 260px;
+        display: inline-block;
+        background-image: linear-gradient(b.$c_overlay, b.$c_overlay), url(../images/image-header-mobile.jpg);
+        background-size: cover;
+        background-position: right;
+        position: relative;
+    }
+
+    &_body{
+        padding:2em;
+
+        h1{
+            margin-bottom:1rem;
+
+            span{
+                color:b.$c_accent;
+            }
+        }   
+
+        .card_stat{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap:1.5rem;
+            margin-top:2rem;
+            
+        }
+    }
+   
+
+}
+
+@media (max-width:767px) {
+    .card{
+        max-width:360px;
+    }
+    
+}
+@media (min-width:768px){
+    main{
+        height:100%;
+    }
+    .card{
+        display:flex;
+        flex-direction: row-reverse;
+        max-width:1020px;
+
+        &_img_container{
+            height:unset;
+            background-image: linear-gradient(b.$c_overlay, b.$c_overlay), url(../images/image-header-desktop.jpg);
+        }
+        &_body{
+            text-align: start;
+            padding:50px;
+            padding-right: 70px;
+            width:100%;
+
+            h1{
+                margin-bottom:1.5rem;
+                font-size: 2.5em;
+
+            }
+            p{
+                text-wrap:wrap ;
+                padding-right:30px;
+            }
+            .card_stat{
+                margin-top:4rem;
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+        }
+    }
+
+}
