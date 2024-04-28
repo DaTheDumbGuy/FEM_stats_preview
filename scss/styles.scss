@@ -9,12 +9,12 @@
 body{
     background:b.$bg_main;
     color:b.$fc_primary;
-    height:100vh;
 }
 main{
     display:grid;
     place-items:center;
     padding:50px 0;
+    min-height: 100vh; //Khalid'suggestion
 }
 .card{
     width:90%;
@@ -50,6 +50,7 @@ main{
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            list-style-type: none;
             gap:1.5rem;
             margin-top:2rem;
             
@@ -66,9 +67,6 @@ main{
     
 }
 @media (min-width:768px){
-    main{
-        height:100%;
-    }
     .card{
         display:flex;
         flex-direction: row-reverse;
